@@ -2,10 +2,14 @@
 Django Ranks
 ============
 
-Not ready yet, DO NOT USE
+Not ready yet, DO NOT USE - but check back soon 🤠
 
-Django Ranks is a Django app to conduct web-based Django Ranks. For each question,
-visitors can choose between a fixed number of answers.
+Django Ranks is a generic Django app to 'rank' models with OpenSkill.py https://github.com/OpenDebates/openskill.py
+
+
+INSTALL -
+
+pip install django-ranks
 
 Detailed documentation is in the "docs" directory.
 

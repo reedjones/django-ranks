@@ -1,6 +1,8 @@
-=====
+============
 Django Ranks
-=====
+============
+
+Not ready yet, DO NOT USE
 
 Django Ranks is a Django app to conduct web-based Django Ranks. For each question,
 visitors can choose between a fixed number of answers.

@@ -21,13 +21,13 @@ ops = {
 }
 
 
-def check_op(oper):
+def validate_operator(oper):
     if oper not in ops:
         raise NotImplementedError(f"No Operator for {oper}")
 
 
 def run_operator(oper, *args):
-    check_op(oper)
+    validate_operator(oper)
     return ops[oper](*args)
 
 
@@ -37,10 +37,10 @@ class AbstractModelMeta(abc.ABCMeta, type(models.Model)):
 
 class NumericModel(models.Model, metaclass=AbstractModelMeta):
     """
-    Abstract Model class that defines a generic 'numeric' model - anything that can be scored or ranked
+    Abstract Model class that defines a generic 'numeric' model - anything that can be treated as a number
+    the goal here is a model that supports arithmetic, +,-,* etc...
     """
 
-    # You may have common fields here.
 
     class Meta:
         abstract = True
@@ -51,15 +51,11 @@ class NumericModel(models.Model, metaclass=AbstractModelMeta):
         pass
 
     def numerical(self, other, compare_type):
-        check_op(compare_type)
-        if type(other) is type(self):
+        validate_operator(compare_type)
+        if isinstance(other, NumericModel):
             return run_operator(compare_type, self.get_number(), other.get_number())
-        elif type(other) is int or type(other) is float:
+        elif isinstance(other, (int, float)):
             return run_operator(compare_type, self.get_number(), int(other))
-        elif other.__dict__().get("__int__"):
-            return run_operator(compare_type, self.get_number(), other.__int__())
-        elif other.__dict__().get("__float__"):
-            return run_operator(compare_type, self.get_number(), other.__float__())
         else:
             raise NotImplementedError(f"Comparison between {type(self)} and {type(other)} Invalid")
 

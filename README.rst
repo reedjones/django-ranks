@@ -2,7 +2,7 @@
 Django Ranks
 ============
 
-Not ready yet, DO NOT USE - but check back soon 🤠
+This is not ready yet, DO NOT USE - but check back soon 🤠
 
 Django Ranks is a generic Django app to 'rank' models with OpenSkill.py https://github.com/OpenDebates/openskill.py
 
@@ -11,7 +11,9 @@ INSTALL -
 
 pip install django-ranks
 
-Detailed documentation is in the "docs" directory.
+find the documentation on readthedocs https://readthedocs.org/projects/django-ranks/
+
+or in the "docs" directory.
 
 Quick start
 -----------
